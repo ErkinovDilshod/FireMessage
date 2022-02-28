@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "298597307858",
+    "firebase_url": "https://fbmessage-a6068-default-rtdb.firebaseio.com",
+    "project_id": "fbmessage-a6068",
+    "storage_bucket": "fbmessage-a6068.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:298597307858:android:0b4d99205edecff3d3640b",
+        "android_client_info": {
+          "package_name": "uz.myprog.firemessage"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "298597307858-s92gnob75bmk2j1lkkn6q7of96a4l996.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDRjdF9y93rV2B7CvZPNqJwiwPELSLmIbE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "298597307858-s92gnob75bmk2j1lkkn6q7of96a4l996.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
