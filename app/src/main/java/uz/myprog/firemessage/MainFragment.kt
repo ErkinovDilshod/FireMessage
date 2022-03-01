@@ -20,7 +20,7 @@ class MainFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = FragmentMainBinding.inflate(layoutInflater)
+        binding = FragmentMainBinding.inflate(inflater, container, false)
 
         val database = Firebase.database("https://fbmessage-a6068-default-rtdb.firebaseio.com/")
         val myRef = database.getReference("message")

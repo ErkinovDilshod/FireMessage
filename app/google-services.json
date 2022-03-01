@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "298597307858-iqv1ipu19oklumnajm0b8qs8qsfen1at.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "uz.myprog.firemessage",
+            "certificate_hash": "0192a7e8bbd8b0d320f78f76e0b6298e27555c0c"
+          }
+        },
+        {
           "client_id": "298597307858-s92gnob75bmk2j1lkkn6q7of96a4l996.apps.googleusercontent.com",
           "client_type": 3
         }
