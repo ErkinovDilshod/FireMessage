@@ -6,6 +6,10 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".MainFragment">
 
+    <!--<include
+        layout="@layout/bar_layout"
+        android:id="@+id/toolbar"/>-->
+
     <TextView
         android:id="@+id/rc_view"
         android:layout_width="match_parent"
