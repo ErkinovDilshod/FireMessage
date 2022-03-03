@@ -10,14 +10,6 @@
         layout="@layout/bar_layout"
         android:id="@+id/toolbar"/>-->
 
-    <TextView
-        android:id="@+id/rc_view"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        app:layout_constraintBottom_toTopOf="@+id/edit_text"
-        app:layout_constraintTop_toTopOf="parent"
-        android:text="text view"
-        />
 
     <EditText
         android:id="@+id/edit_text"
@@ -35,6 +27,15 @@
         android:text="S e n d"
         />
 
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rcView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/edit_text"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:listitem="@layout/user_list_item"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

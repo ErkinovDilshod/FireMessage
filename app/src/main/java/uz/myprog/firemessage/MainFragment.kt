@@ -37,7 +37,7 @@ class MainFragment : Fragment() {
         dRef.addValueEventListener(object : ValueEventListener{
             override fun onDataChange(snapshot: DataSnapshot) {
                 binding.apply {
-                    rcView.append("\n")
+                    rcView.ap
                     rcView.append("Erkinov:${snapshot.value.toString()}")
                 }
             }
@@ -63,6 +63,10 @@ class MainFragment : Fragment() {
         }
 
         onChangeListener(myRef)
+    }
+
+    init {
+
     }
 
     private fun setUpActionBar(){
