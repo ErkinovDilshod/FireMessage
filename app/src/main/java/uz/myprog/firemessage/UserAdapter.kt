@@ -7,12 +7,16 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import uz.myprog.firemessage.UserAdapter.*
 import uz.myprog.firemessage.databinding.UserListItemBinding
+import java.text.SimpleDateFormat
+import java.util.*
 
 class UserAdapter : ListAdapter<User, ItemHolder>(ItemComparator()) {
     class ItemHolder(private val binding:UserListItemBinding):RecyclerView.ViewHolder(binding.root) {
         fun bind(user:User) = with(binding){
-            tvMessage.text = user.message
-            tvUsername.text = user.name
+            val currentTime: String =
+                SimpleDateFormat("HH:mm:ss", Locale.getDefault()).format(Date())
+            tvSenderMessage.text = user.message
+            tvSenderCurrentTime.text = currentTime
         }
         companion object{
             fun create(parent:ViewGroup):ItemHolder{
@@ -39,5 +43,9 @@ class UserAdapter : ListAdapter<User, ItemHolder>(ItemComparator()) {
 
     override fun onBindViewHolder(holder: ItemHolder, position: Int) {
        holder.bind(getItem(position))
+    }
+
+    override fun getItemViewType(position: Int): Int {
+        return super.getItemViewType(position)
     }
 }

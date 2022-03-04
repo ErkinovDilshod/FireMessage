@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.database.DataSnapshot
@@ -23,6 +24,7 @@ class MainFragment : Fragment() {
 
     lateinit var binding: FragmentMainBinding
     lateinit var auth: FirebaseAuth
+    lateinit var adapter: UserAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -36,10 +38,13 @@ class MainFragment : Fragment() {
     private fun onChangeListener(dRef:DatabaseReference){
         dRef.addValueEventListener(object : ValueEventListener{
             override fun onDataChange(snapshot: DataSnapshot) {
-                binding.apply {
-                    rcView.ap
-                    rcView.append("Erkinov:${snapshot.value.toString()}")
-                }
+                val list = ArrayList<User>()
+                    for (s in snapshot.children){
+                        val user = s.getValue(User::class.java)
+                        if (user != null) list.add(user)
+                    }
+                    adapter.submitList(list)
+
             }
 
             override fun onCancelled(error: DatabaseError) {
@@ -57,16 +62,22 @@ class MainFragment : Fragment() {
         val database = Firebase.database("https://fbmessage-a6068-default-rtdb.firebaseio.com/")
         val myRef = database.getReference("message")
 
-        binding.btnSend.setOnClickListener{
-            myRef.setValue(binding.editText.text.toString())
-            binding.editText.text.clear()
+        binding.btnSendMessage.setOnClickListener{
+            myRef.child(myRef.push().key?:"").setValue(User(binding.chatEditText.text.toString(), false,
+                receiver = false
+            ))
+            binding.chatEditText.text.clear()
         }
 
         onChangeListener(myRef)
+        initRcView()
+
     }
 
-    init {
-
+    private fun initRcView() = with(binding){
+        adapter = UserAdapter()
+        rcView.layoutManager = LinearLayoutManager(requireContext())
+        rcView.adapter = adapter
     }
 
     private fun setUpActionBar(){

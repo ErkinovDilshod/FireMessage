@@ -93,13 +93,14 @@ class SignInFragment : Fragment() {
 
         binding.btnSignIn.setOnClickListener {
             signInWithGoogle()
+            findNavController().navigate(R.id.action_signInFragment_to_mainFragment)
         }
         checkAuthState()
 
 
-        binding.btnSignIn.setOnClickListener {
-            findNavController().navigate(R.id.action_signInFragment_to_mainFragment)
-        }
+//        binding.btnSignIn.setOnClickListener {
+//
+//        }
 
     }
 
